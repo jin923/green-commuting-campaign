@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eco Catcher Game</title>
+  <style>
+    body {
+      margin: 0;
+      background: #e0f7fa;
+      text-align: center;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    h1 {
+      margin-top: 20px;
+      color: #2e7d32;
+    }
+
+    canvas {
+      background: #fff;
+      display: block;
+      margin: 20px auto;
+      border: 2px solid #388e3c;
+      border-radius: 10px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #4caf50;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎮 Eco Catcher</h1>
+  <p>CATCH: 🚲 🚌 ⚡ — AVOID: 🚗 💨 🛢️</p>
+  <canvas id="gameCanvas" width="400" height="500"></canvas>
+  <a href="index.html" class="btn">← Back to Campaign</a>
+
+  <script>
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+
+    const goodItems = ["🚲", "🚌", "⚡"];
+    const badItems = ["🚗", "💨", "🛢️"];
+    const items = [];
+
+    const player = {
+      x: 170,
+      y: 460,
+      width: 60
+    };
+
+    let score = 0;
+    let gameOver = false;
+
+    function drawPlayer() {
+      ctx.font = "30px Arial";
+      ctx.fillText("🧍", player.x, player.y);
+    }
+
+    function drawItems() {
+      items.forEach((item) => {
+        ctx.font = "30px Arial";
+        ctx.fillText(item.icon, item.x, item.y);
+      });
+    }
+
+    function updateItems() {
+      for (let i = items.length - 1; i >= 0; i--) {
+        const item = items[i];
+        item.y += item.speed;
+
+        // Collision check
+        if (
+          item.y > player.y - 20 &&
+          item.x > player.x - 10 &&
+          item.x < player.x + player.width
+        ) {
+          if (goodItems.includes(item.icon)) {
+            score++;
+          } else {
+            gameOver = true;
+          }
+          items.splice(i, 1);
+        }
+
+        // Remove if it falls out of screen
+        if (item.y > 500) {
+          items.splice(i, 1);
+        }
+      }
+    }
+
+    function gameLoop() {
+      if (gameOver) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.font = "24px Arial";
+        ctx.fillText(`Game Over! Score: ${score}`, 100, 250);
+        return;
+      }
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      drawPlayer();
+      drawItems();
+      updateItems();
+
+      ctx.font = "16px Arial";
+      ctx.fillText("Score: " + score, 10, 20);
+
+      requestAnimationFrame(gameLoop);
+    }
+
+    function spawnItem() {
+      const isGood = Math.random() < 0.7;
+      const icon = isGood
+        ? goodItems[Math.floor(Math.random() * goodItems.length)]
+        : badItems[Math.floor(Math.random() * badItems.length)];
+
+      items.push({
+        icon,
+        x: Math.random() * 360,
+        y: 0,
+        speed: 2 + Math.random() * 2
+      });
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") {
+        player.x -= 20;
+      } else if (e.key === "ArrowRight") {
+        player.x += 20;
+      }
+
+      // Prevent going off-screen
+      if (player.x < 0) player.x = 0;
+      if (player.x > 340) player.x = 340;
+    });
+
+    setInterval(spawnItem, 800);
+    gameLoop();
+  </script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Green Commuting Campaign</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🚴 Green Commuting Campaign</h1>
+    <p>Let’s ride for a cleaner, healthier planet!</p>
+    <a href="https://your-google-form-link.com" target="_blank" class="btn">📋 Take the Survey</a>
+  </header>
+
+  <section class="why">
+    <h2>🌍 Why Green Commuting?</h2>
+    <ul>
+      <li>❌ Reduces vehicle emissions</li>
+      <li>💚 Improves air quality & public health</li>
+      <li>🚴 Boosts personal fitness</li>
+    </ul>
+  </section>
+
+  <section class="impact">
+    <h2>📈 Live Impact</h2>
+    <div class="stats">
+      <p><strong>Participants:</strong> <span id="peopleCount">58</span></p>
+      <p><strong>Estimated CO₂ Saved:</strong> <span id="co2Saved">21.3 kg</span></p>
+    </div>
+  </section>
+
+  <section class="gallery">
+    <h2>🖼️ Posters & Gallery</h2>
+    <img src="images/poster1.jpg" alt="Poster 1" />
+    <img src="images/poster2.jpg" alt="Poster 2" />
+  </section>
+
+  <section class="actions">
+    <a href="eco-game.html" class="btn">🎮 Play Eco Catcher</a>
+
+    <h2>🚀 Take Action</h2>
+    <p>Join a carpool group or ride your cycle to college!</p>
+    <a href="https://chat.whatsapp.com/example-link" target="_blank" class="btn">Join Carpool Group</a>
+
+    <h2>🤝 Pledge to Commute Green</h2>
+    <input type="text" id="nameInput" placeholder="Your Name" />
+    <select id="mode">
+      <option>Bicycle</option>
+      <option>Carpool</option>
+      <option>Public Transport</option>
+    </select>
+    <button onclick="addPledge()">🚀 Submit Pledge</button>
+    <ul id="pledgeList"></ul>
+  </section>
+
+  <section class="calculator">
+    <h2>💨 CO₂ Savings Calculator</h2>
+    <p>Enter your daily distance and see your CO₂ savings:</p>
+    <input type="number" id="distance" placeholder="Distance in km" />
+    <select id="transport">
+      <option value="bike">Bicycle</option>
+      <option value="carpool">Carpool</option>
+      <option value="bus">Bus</option>
+      <option value="car">Car (solo)</option>
+    </select>
+    <button onclick="calculateCO2()">Calculate</button>
+    <p id="result"></p>
+  </section>
+
+  <section class="quiz">
+    <h2>🧠 How Green Are You?</h2>
+    <form id="quizForm">
+      <p>1. Which commute option is best for the environment?</p>
+      <label><input type="radio" name="q1" value="0"> Car</label><br />
+      <label><input type="radio" name="q1" value="1"> Bicycle</label><br />
+
+      <p>2. Which fuel type is cleanest?</p>
+      <label><input type="radio" name="q2" value="1"> Electric</label><br />
+      <label><input type="radio" name="q2" value="0"> Petrol</label><br />
+
+      <p>3. Best time to turn off your vehicle engine?</p>
+      <label><input type="radio" name="q3" value="1"> Traffic Signal</label><br />
+      <label><input type="radio" name="q3" value="0"> Never</label><br />
+
+      <button type="button" onclick="checkQuiz()">Check Score</button>
+      <p id="quizScore"></p>
+    </form>
+  </section>
+
+  <footer>
+    <p>Made with 💚 by Team EcoMove</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
