@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Green Commuting Campaign</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="main-body">
+  <!-- Floating Eco Icons -->
+  <div class="floating-icons">
+    <div class="icon 🚲">🚲</div>
+    <div class="icon 🌱">🌱</div>
+    <div class="icon 🚍">🚍</div>
+    <div class="icon 🍃">🍃</div>
+    <div class="icon 🚶">🚶</div>
+  </div>
+
+  <!-- Parallax Background -->
+  <div class="parallax-bg"></div>
+
+<header class="fade-in">
+  <h1>🚴 Green Commuting Campaign</h1>
+  <p>Let’s ride for a cleaner, healthier planet!</p>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSeN4TFPF1_nHnH5Jr9MOu05D8waJfEpLVhb6eRJnNH2poLDVA/viewform?usp=sharing&ouid=106972014058368813520" 
+     target="_blank" 
+     class="btn glow-btn">
+     📋 Take the Survey
+  </a>
+</header>
+
+
+ <section class="why enhanced-why">
+  <h2>🌍 Why Choose Green Commuting?</h2>
+  <div class="benefits">
+    <div class="benefit">
+      <span class="emoji">🌫️</span>
+      <p>Reduces vehicle emissions</p>
+    </div>
+    <div class="benefit">
+      <span class="emoji">🌱</span>
+      <p>Improves air quality & health</p>
+    </div>
+    <div class="benefit">
+      <span class="emoji">🚴‍♂️</span>
+      <p>Boosts personal fitness</p>
+    </div>
+  </div>
+</section>
+
+<section class="impact enhanced-impact">
+  <h2>📈 Our Green Impact</h2>
+  <div class="impact-cards">
+    <div class="impact-card">
+      <span class="impact-icon">👥</span>
+      <p>Participants</p>
+      <h3 id="peopleCount">55</h3>
+    </div>
+    <div class="impact-card">
+      <span class="impact-icon">🌿</span>
+      <p>CO₂ Saved</p>
+      <h3 id="co2Saved">33.3 kg</h3>
+    </div>
+  </div>
+</section>
+
+<section class="gallery">
+  <h2>🖼️ Posters</h2>
+  <div class="gallery-grid">
+    <div class="gallery-poster green-theme">
+      <h3>Cycle to Campus</h3>
+      <p>Reduce traffic, save CO₂</p>
+    </div>
+    <div class="gallery-poster sky-theme">
+      <h3>Breathe Clean Air</h3>
+      <p>Choose eco-transport daily</p>
+    </div>
+    <div class="gallery-poster yellow-theme">
+      <h3>Ride Together</h3>
+      <p>Carpool & cut carbon</p>
+    </div>
+  </div>
+</section>
+
+<section class="actions">
+  <h2>🤝 Pledge to Commute Green</h2>
+  <p>Make your commitment to a greener commute!</p>
+  <input type="text" id="nameInput" placeholder="Your Name" />
+  <select id="mode">
+    <option>Bicycle</option>
+    <option>Carpool</option>
+    <option>Public Transport</option>
+  </select>
+  <button onclick="addPledge()" class="btn glow-btn">🚀 Submit Pledge</button>
+  <ul id="pledgeList"></ul>
+</section>
+
+
+<section class="calculator enhanced-calculator">
+  <h2>💨 CO₂ Savings Calculator</h2>
+  <p>Enter your daily commute details and find your savings!</p>
+  
+  <div class="calc-box">
+    <input type="number" id="distance" placeholder="Distance in km" />
+    <select id="transport">
+      <option value="bike">🚲 Bicycle</option>
+      <option value="carpool">🚘 Carpool</option>
+      <option value="bus">🚌 Bus</option>
+      <option value="car">🚗 Car (solo)</option>
+    </select>
+    <button onclick="calculateCO2()" class="btn glow-btn">🌿 Calculate</button>
+    <p id="result" class="calc-result"></p>
+  </div>
+</section>
+
+ <section class="quiz professional-quiz">
+  <h2>🧠 Sustainability Quiz</h2>
+  <form id="quizForm" class="quiz-form">
+    <div class="quiz-question">
+      <p><strong>1. Which commute option is best for the environment?</strong></p>
+      <label><input type="radio" name="q1" value="0"> Car</label>
+      <label><input type="radio" name="q1" value="1"> Bicycle</label>
+    </div>
+
+    <div class="quiz-question">
+      <p><strong>2. Which fuel type is the cleanest?</strong></p>
+      <label><input type="radio" name="q2" value="1"> Electric</label>
+      <label><input type="radio" name="q2" value="0"> Petrol</label>
+    </div>
+
+    <div class="quiz-question">
+      <p><strong>3. When should you turn off your vehicle engine?</strong></p>
+      <label><input type="radio" name="q3" value="1"> At traffic signals</label>
+      <label><input type="radio" name="q3" value="0"> Never</label>
+    </div>
+
+    <button type="button" onclick="checkQuiz()" class="btn professional-btn">Submit Answers</button>
+    <p id="quizScore" class="quiz-score"></p>
+  </form>
+</section>
+
+
+  <div class="mascot" id="mascot">
+    🐸 EcoTip: Ride once a week & save the planet!
+  </div>
+
+  <footer>
+    <p>Made with 💚 by Sajida</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <!--mascot-->
+<a class="game-mascot" onclick="window.location.href='eco-game.html'" title="Play Eco Game!">
+  🐸<br><span>Eco Game</span>
+</a>
+
+
+</body>
+</html>
